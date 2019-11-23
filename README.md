@@ -1,1 +1,1 @@
-# TexttoSpeech
+# An app that gives comprehensive aid to tourists including translation and map searches.

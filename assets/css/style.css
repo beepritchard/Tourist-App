@@ -84,6 +84,12 @@ h1{
 
 }
 
+.main-img {
+  margin-top: auto;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
 
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {

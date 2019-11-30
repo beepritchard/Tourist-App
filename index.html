@@ -8,7 +8,6 @@
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <div class="jumbotron jumbotron-fluid">
-  <img class="image" src="assets/images/a350.png" width="200" alt="">
   <div class="container">
     <h1 class="head display-4 text-center">TOURKIT</h1>
   </div>
@@ -34,7 +33,7 @@
   </div>
 
   <div id="section1" class="container-fluid"
-    style="height: 600px; padding-top:70px;padding-bottom:70px; text-align: center;">
+    style="height: 800px; padding-top:70px;padding-bottom:70px; text-align: center;">
     <img class="main-img" src="assets/css/images/icon-3.png">
     <h1 style="color:#873d35">TEXT TO SPEECH</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat pariatur voluptatibus, saepe sed quibusdam
@@ -42,6 +41,61 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, autem! Pariatur in amet labore. Fugit,
       possimus qui architecto repudiandae voluptatem suscipit quis. Fugit odio ex, eligendi nostrum laboriosam tempora
       deleniti!</p>
+    <form class="container text-center">
+      <div class="row">
+        <div class="col-sm-6 mx-auto">
+          <div class="form-group">
+            <div id="front-text" class="text-success">
+            </div>
+
+            <!-- Input box text area -->
+            <textarea id="maintext" class="form-control form-control-lg" style="max-lines: 2"
+              placeholder="Enter the text...">
+                    </textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rate of voice which we will be updated by user -->
+      <div class="row">
+        <div class="col-sm-6 mx-auto">
+          <div class="form-group">
+            <label for="rate">Rate</label>
+            <div id="rate-value" class="badge badge-primary">5</div>
+            <input class="custom-range" type="range" id="rate" max="1" min="0.2" value="0.5" step="0.1">
+          </div>
+        </div>
+      </div>
+
+      <!-- Pitch of voice which we will be updated by user -->
+      <div class="row">
+        <div class="col-sm-6 mx-auto">
+          <div class="form-group">
+            <label for="pitch">Pitch</label>
+            <div id="pitch-value" class="badge badge-primary">5</div>
+            <input class="custom-range" type="range" id="pitch" max="1" min="0.2" value="0.5" step="0.1">
+          </div>
+        </div>
+      </div>
+
+      <!-- The different types of voice along with country and language -->
+      <div class="row">
+        <div class="col-sm-6 mx-auto">
+          <div class="form-group">
+
+            <!-- This section will be dynamically loaded from 
+                        the API so we left it blank for now-->
+            <select class="form-control form-control-lg" id="voice-select"></select>
+          </div>
+
+          <!-- Button to enable the speech from the  
+                    text given in the input box -->
+          <button id="submit" class="btn btn-lg ">
+            Speak it
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
   <hr>
   <div id="section2" class="container-fluid"
@@ -66,7 +120,7 @@
 
   </div>
   <hr>
-  <div id="section41" class="container-fluid"
+  <div id="section4" class="container-fluid"
     style="height: 600px; padding-top:70px;padding-bottom:70px; text-align: center;">
     <img class="main-img" src="assets/css/images/icon-2.png">
     <h1 style="color:#bb4926">WEATHER</h1>
@@ -77,7 +131,7 @@
 
   </div>
   <hr>
-  <div id="section42" class="container-fluid"
+  <div id="section5" class="container-fluid"
     style="height: 600px; padding-top:70px;padding-bottom:70px; text-align: center;">
     <img class="main-img" src="assets/css/images/icon-5.png">
     <h1 style="color:#dfbb24">UNIT</h1>
@@ -135,10 +189,11 @@
   </script>
 
 </body>
-<footer class="page-footer footer-expand-lg text-black" style="background-color:#dfbb24" >
+<footer class="page-footer footer-expand-lg text-black" style="background-color:#dfbb24">
 
-  <div class="footer-copyright text-center py-3"> © The A-Team - 2019 Copyright
-
+  <div class="footer-copyright text-center py-3"> 
+    © 2019 Copyright - Contributors: Bee Pritchard, Mason Haney, Anjan Shrestha and Sylvain David
   </div>
 </footer>
+
 </html>

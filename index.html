@@ -134,13 +134,223 @@
   <div id="section5" class="container-fluid"
     style="height: 600px; padding-top:70px;padding-bottom:70px; text-align: center;">
     <img class="main-img" src="assets/css/images/icon-5.png">
-    <h1 style="color:#dfbb24">UNIT</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat pariatur voluptatibus, saepe sed quibusdam
-      doloremque esse accusamus sequi animi, eum ea, nobis error. Eos quas doloremque, nemo itaque beatae tempora.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat pariatur voluptatibus, saepe sed quibusdam
-      doloremque esse accusamus sequi animi, eum ea, nobis error. Eos quas doloremque, nemo itaque beatae tempora.</p>
+    <h1 style="color:#dfbb24">UNIT CONVERTER</h1>
 
+    <div class="card" style="width: 30rem; background-color:rgb(71, 70, 70);">
+      <div class="card-body">
+
+        <img class="main-icon" style="width: 30px" src="assets/css/images/weight.png">
+        <h3 style="color:#dfbb24; font-weight: bold;">WEIGHT CONVERTER</h3>
+
+
+        <div class="w3-half w3-margin-top">
+          <label style="font-weight: bold; color: honeydew;">Kg</label>
+          <input id="inputKilograms" class="w3-input w3-border" type="number" placeholder="Kilograms" style="width: 150px;"
+            oninput="weightConverter(this.id,this.value)" onchange="weightConverter(this.id,this.value)">
+        </div>
+
+        <div class="w3-half w3-margin-top">
+          <label style="font-weight: bold; color: honeydew;">Lb</label>
+          <input id="inputPounds" class="w3-input w3-border" type="number" placeholder="Pounds" style="width: 150px;"
+            oninput="weightConverter(this.id,this.value)" onchange="weightConverter(this.id,this.value)">
+        </div>
+
+        <div class="w3-half w3-margin-top">
+          <label style="font-weight: bold; color: honeydew;">Oz</label>
+          <input id="inputOunces" class="w3-input w3-border" type="number" placeholder="Ounces" style="width: 150px;"
+            oninput="weightConverter(this.id,this.value)" onchange="weightConverter(this.id,this.value)">
+        </div>
+
+        <div class="w3-half w3-margin-top">
+          <label style="font-weight: bold; color: honeydew;">Gr</label>
+          <input id="inputGrams" class="w3-input w3-border" type="number" placeholder="Pounds" style="width: 150px;"
+            oninput="weightConverter(this.id,this.value)" onchange="weightConverter(this.id,this.value)">
+        </div>
+        <script>
+          function weightConverter(source, valNum) {
+            valNum = parseFloat(valNum);
+            var inputPounds = document.getElementById("inputPounds");
+            var inputKilograms = document.getElementById("inputKilograms");
+            var inputOunces = document.getElementById("inputOunces");
+            var inputGrams = document.getElementById("inputGrams");
+
+            if (source == "inputPounds") {
+              inputKilograms.value = (valNum / 2.2046).toFixed(2);
+              inputGrams.value = (valNum / 0.0022046).toFixed();
+              inputOunces.value = (valNum * 0.071429).toFixed(3);
+            }
+            if (source == "inputKilograms") {
+              inputPounds.value = (valNum * 2.2046).toFixed(2);
+              inputOunces.value = (valNum * 35.274).toFixed(2);
+              inputGrams.value = (valNum * 1000).toFixed();
+            }
+            if (source == "inputOunces") {
+              inputPounds.value = (valNum * 0.062500).toFixed(4);
+              inputKilograms.value = (valNum / 35.274).toFixed(4);
+              inputGrams.value = (valNum / 0.035274).toFixed(1);
+            }
+            if (source == "inputGrams") {
+              inputPounds.value = (valNum * 0.0022046).toFixed(4);
+              inputKilograms.value = (valNum / 1000).toFixed(4);
+              inputOunces.value = (valNum * 0.035274).toFixed(3);
+            }
+
+
+          }
+        </script>
+      </div>
+
+    </div>
   </div>
+
+  <div class="" style="width: 30rem; background-color:rgb(71, 70, 70);">
+      <div class="card-body">
+
+        <img class="main-icon" style="width: 30px" src="assets/css/images/lenght.png">
+        <h3 style="color:#dfbb24; font-weight: bold;">LENGTH CONVERTER</h3>
+
+
+        <div class="w3-half w3-margin-top">
+          <label style="font-weight: bold; color: honeydew;">Km</label>
+          <input id="inputKilometers" class="w3-input w3-border" type="number" placeholder="Kilometers" style="width: 150px;"
+            oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        </div>
+
+        <div class="w3-half w3-margin-top">
+          <label style="font-weight: bold; color: honeydew;">Ml</label>
+          <input id="inputMiles" class="w3-input w3-border" type="number" placeholder="Miles" style="width: 150px;"
+            oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        </div>
+
+        <div class="w3-half w3-margin-top">
+          <label style="font-weight: bold; color: honeydew;">M</label>
+          <input id="inputMeters" class="w3-input w3-border" type="number" placeholder="Meters" style="width: 150px;"
+            oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        </div>
+
+        <div class="w3-half w3-margin-top">
+          <label style="font-weight: bold; color: honeydew;">Ft</label>
+          <input id="inputFoot" class="w3-input w3-border" type="number" placeholder="Foot" style="width: 150px;"
+            oninput="lengthConverter(this.id,this.value)" onchange="lengthConverter(this.id,this.value)">
+        </div>
+        <script>
+          function lengthConverter(source, valNum) {
+            valNum = parseFloat(valNum);
+            var inputKilometers = document.getElementById("inputKilometers");
+            var inputMiles = document.getElementById("inputMiles");
+            var inputMeters = document.getElementById("inputMeters");
+            var inputFoot = document.getElementById("inputFoot");
+
+            if (source == "inputMiles") {
+              inputKilometers.value = (valNum * 1.60934).toFixed(2);
+              inputFoot.value = (valNum * 5280).toFixed();
+              inputMeters.value = (valNum * 1609.34).toFixed(3);
+            }
+            if (source == "inputKilometers") {
+              inputMiles.value = (valNum * 0.621371).toFixed(2);
+              inputMeters.value = (valNum * 1000).toFixed(2);
+              inputFoot.value = (valNum * 3280.84).toFixed();
+            }
+            if (source == "inputMeters") {
+              inputMiles.value = (valNum * 0.000621371).toFixed(4);
+              inputKilometers.value = (valNum *0.001).toFixed(4);
+              inputFoot.value = (valNum * 3.28084).toFixed(1);
+            }
+            if (source == "inputFoot") {
+              inputMiles.value = (valNum * 0.000189394).toFixed(4);
+              inputKilometers.value = (valNum * 0.0003048).toFixed(4);
+              inputMeters.value = (valNum * 0.3048).toFixed(3);
+            }
+
+
+          }
+        </script>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card" style="width: 30rem; background-color:rgb(71, 70, 70);">
+      <div class="card-body">
+
+        <img class="main-icon" style="width: 30px" src="assets/css/images/temp.png">
+        <h3 style="color:#dfbb24; font-weight: bold;">TEMPERATURE CONVERTER</h3>
+
+
+        <div class="w3-half w3-margin-top">
+          <label style="font-weight: bold; color: honeydew;">Co</label>
+          <input id="inputCelsius" class="w3-input w3-border" type="number" placeholder="Celsius" style="width: 150px;"
+            oninput="temperatureConverter(this.id,this.value)" onchange="temperatureConverter(this.id,this.value)">
+        </div>
+
+        <div class="w3-half w3-margin-top">
+          <label style="font-weight: bold; color: honeydew;">Fo</label>
+          <input id="inputFahrenheit" class="w3-input w3-border" type="number" placeholder="Fahrenheit" style="width: 150px;"
+            oninput="temperatureConverter(this.id,this.value)" onchange="temperatureConverter(this.id,this.value)">
+        </div>
+
+      
+        <script>
+          function temperatureConverter(source, valNum) {
+            valNum = parseFloat(valNum);
+            var inputCelsius = document.getElementById("inputCelsius");
+            var inputFahrenheit = document.getElementById("inputFahrenheit");
+          
+
+            if (source == "inputFahrenheit") {
+              inputCelsius.value = (valNum -32*(5/9)).toFixed();
+            }
+            if (source == "inputCelsius") {
+              inputFahrenheit.value = (valNum * 33.8).toFixed(1);
+            }
+          }
+        </script>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card" style="width: 30rem; background-color:rgb(71, 70, 70);">
+      <div class="card-body">
+
+        <img class="main-icon" style="width: 30px" src="assets/css/images/speed.png">
+        <h3 style="color:#dfbb24; font-weight: bold;">SPEED CONVERTER</h3>
+
+
+        <div class="w3-half w3-margin-top">
+          <label style="font-weight: bold; color: honeydew;">KpH</label>
+          <input id="inputKph" class="w3-input w3-border" type="number" placeholder="Kilometers Per Hour" style="width: 150px;"
+            oninput="speedConverter(this.id,this.value)" onchange="speedConverter(this.id,this.value)">
+        </div>
+
+        <div class="w3-half w3-margin-top">
+          <label style="font-weight: bold; color: honeydew;">MpH</label>
+          <input id="inputMph" class="w3-input w3-border" type="number" placeholder="Miles Per Hour" style="width: 150px;"
+            oninput="speedConverter(this.id,this.value)" onchange="speedConverter(this.id,this.value)">
+        </div>
+
+      
+        <script>
+          function speedConverter(source, valNum) {
+            valNum = parseFloat(valNum);
+            var inputKph = document.getElementById("inputKph");
+            var inputMph = document.getElementById("inputMph");
+          
+
+            if (source == "inputMph") {
+              inputKph.value = (valNum * 0.621371).toFixed();
+            }
+            if (source == "inputKph") {
+              inputMph.value = (valNum * 1.60934).toFixed(1);
+            }
+          }
+        </script>
+      </div>
+
+    </div>
+  </div>
+
+
   <hr>
   <!-- <div class="container">
     <div class="row">
@@ -191,7 +401,7 @@
 </body>
 <footer class="page-footer footer-expand-lg text-black" style="background-color:#dfbb24">
 
-  <div class="footer-copyright text-center py-3"> 
+  <div class="footer-copyright text-center py-3">
     © 2019 Copyright - Contributors: Bee Pritchard, Mason Haney, Anjan Shrestha and Sylvain David
   </div>
 </footer>

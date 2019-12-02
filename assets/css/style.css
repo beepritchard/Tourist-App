@@ -16,8 +16,6 @@ body {
    
   }
   
-
-
   .sidebar a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -69,9 +67,6 @@ body {
       background: rgb(238, 186, 16);
   }
 
-  /* .container{
-      object-position: center;
-  } */
   .container .col-xs-3{
     padding-left: 10px;
     padding-right: 10px;
@@ -94,12 +89,54 @@ h1{
 
 .btn{
   background-color:#873d35;
-  color: white;
+  color: #414042;
 }
 
 
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.row {
+  margin: 0 -5px;
+  width: auto;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: white;
+}
+
+h3{
+  color: rgb(238, 186, 16);
+  font-weight: bold;
+}
+
+
   @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
   }
+

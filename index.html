@@ -58,10 +58,95 @@
     style="height: 600px; padding-top:70px;padding-bottom:70px; text-align: center;">
     <img class="main-img" src="assets/css/images/icon-1.png">
     <h1 style="color:#1d6582">MONEY</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat pariatur voluptatibus, saepe sed quibusdam
-      doloremque esse accusamus sequi animi, eum ea, nobis error. Eos quas doloremque, nemo itaque beatae tempora.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat pariatur voluptatibus, saepe sed quibusdam
-      doloremque esse accusamus sequi animi, eum ea, nobis error. Eos quas doloremque, nemo itaque beatae tempora.</p>
+
+    <h2>Currency Calculator</h2>
+    <p> GBP: British Pound Sterling, EUR: Euro, USD: US Dollar, CNY: Chinese Yuan, INR: Indian Rupee, JPY: Japanese Yen,
+      RUB: Russian Ruble.</p>
+    <form class="form-inline">
+      <div class="form-group mb-2">
+        <input type="number" class="form-control" id="amount" />
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <select class="form-control" id="currency-1" required>
+          <option>GBP</option>
+          <option>EUR</option>
+          <option>USD</option>
+          <option>CNY</option>
+          <option>INR</option>
+          <option>JPY</option>
+          <option>RUB</option>
+        </select>
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <label class="label">convert to</label>
+        <select class="form-control" id="currency-2" required>
+          <option>GBP</option>
+          <option>EUR</option>
+          <option>USD</option>
+          <option>CNY</option>
+          <option>INR</option>
+          <option>JPY</option>
+          <option>RUB</option>
+        </select>
+      </div>
+      <button class="btn calculate-btn  mb-2">Convert!</button>
+    </form>
+    <div class="result" style="font-weight: bold; font-size: 20px;">
+      <p>
+        <span class="given-amount"></span>
+        <span class="base-currency"></span>
+        <span class="final-result"></span>
+        <span class="second-currency"></span>
+      </p>
+    </div>
+
+    <script>
+      var crrncy = {
+        'EUR': { 'GBP': 0.857, 'CNY': 7.799, 'INR': 79.343, 'JPY': 120.992, 'RUB': 71.065, 'USD': 1.108 },
+        'USD': { 'GBP': 0.773, 'CNY': 7.038, 'INR': 71.608, 'JPY': 109.195, 'RUB': 64.136, 'EUR': 0.902 },
+        'GBP': { 'EUR': 1.167, 'CNY': 9.103, 'INR': 92.609, 'JPY': 141.221, 'RUB': 82.946, 'USD': 1.293 },
+        'CNY': { 'GBP': 0.110, 'USD': 0.142, 'INR': 10.174, 'JPY': 14.514, 'RUB': 9.112, 'EUR': 0.128 },
+        'INR': { 'USD': 71.608, 'GBP': 0.011, 'CNY': 0.098, 'JPY': 1.525, 'RUB': 0.896, 'EUR': 0.013 },
+        'JPY': { 'GBP': 0.007, 'CNY': 0.064, 'INR': 0.656, 'EUR': 0.008, 'RUB': 0.587, 'USD': 0.009 },
+        'RUB': { 'GBP': 0.012, 'CNY': 0.110, 'INR': 1.116, 'JPY': 1.703, 'EUR': 0.014, 'USD': 0.016 },
+      }
+      var btn = document.querySelector('.calculate-btn');
+      var baseCurrencyInput = document.getElementById('currency-1');
+      var secondCurrencyInput = document.getElementById('currency-2');
+      var amountInput = document.getElementById('amount');
+      var toShowAmount = document.querySelector('.given-amount');
+      var toShowBase = document.querySelector('.base-currency');
+      var toShowSecond = document.querySelector('.second-currency');
+      var toShowResult = document.querySelector('.final-result');
+
+      function convertCurrency(event) {
+        event.preventDefault();
+        var amount = amountInput.value;
+        var from = baseCurrencyInput.value;
+        var to = secondCurrencyInput.value;
+        var result = 0;
+
+        try {
+          if (from == to) {
+            result = amount;
+          } else {
+            result = amount * crrncy[from][to];
+          }
+        }
+        catch (err) {
+          result = amount * (1 / crrncy[to][from]);
+        }
+
+        toShowAmount.innerHTML = amount;
+        toShowBase.textContent = from + ' = ';
+        toShowSecond.textContent = to;
+        toShowResult.textContent = result;
+      }
+
+      btn.addEventListener('click', convertCurrency);
+
+
+    </script>
 
   </div>
   <hr>
@@ -313,4 +398,3 @@
 </footer>
 
 </html>
-

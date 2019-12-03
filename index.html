@@ -80,10 +80,10 @@
     style="height: 600px; padding-top:70px;padding-bottom:70px; text-align: center;">
     <img class="main-img" src="assets/css/images/icon-5.png">
     <h1 style="color:#dfbb24">UNIT CONVERTER</h1>
-    <p>In this section, you will find a converter for the 4 most used unit: Weight, Lenght, Temperature and speed. </p>
+    <p>In this section, you will find a converter for the 4 most used units: Weight, Length, Temperature and speed. </p>
       <p>Use suggestions: 
-              <p>Weight converter: to cook, to sent a package home or for ID verification...</p>
-              <p>Lenght converter: to mesure your lugage, to exercise...</p>
+              <p>Weight converter: to cook, to send a package home or for ID verification...</p>
+              <p>Length converter: to measure your luggage, to exercise...</p>
               <p>Temperature converter: to check the weather, to store food...</p>
               <p>Speed converter: to know the speed limit...</p>
       </p>
@@ -121,45 +121,45 @@
             <input id="inputGrams" class="w3-input w3-border" type="number" placeholder="Gr" style="width: 150px;"
               oninput="weightConverter(this.id,this.value)" onchange="weightConverter(this.id,this.value)">
           </div>
-          <script>
-            function weightConverter(source, valNum) {
-              valNum = parseFloat(valNum);
-              var inputPounds = document.getElementById("inputPounds");
-              var inputKilograms = document.getElementById("inputKilograms");
-              var inputOunces = document.getElementById("inputOunces");
-              var inputGrams = document.getElementById("inputGrams");
+          <script src= "app.js">
+            // function weightConverter(source, valNum) {
+            //   valNum = parseFloat(valNum);
+            //   var inputPounds = document.getElementById("inputPounds");
+            //   var inputKilograms = document.getElementById("inputKilograms");
+            //   var inputOunces = document.getElementById("inputOunces");
+            //   var inputGrams = document.getElementById("inputGrams");
 
-              if (source == "inputPounds") {
-                inputKilograms.value = (valNum / 2.2046).toFixed(2);
-                inputGrams.value = (valNum / 0.0022046).toFixed();
-                inputOunces.value = (valNum * 0.071429).toFixed(3);
-              }
-              if (source == "inputKilograms") {
-                inputPounds.value = (valNum * 2.2046).toFixed(2);
-                inputOunces.value = (valNum * 35.274).toFixed(2);
-                inputGrams.value = (valNum * 1000).toFixed();
-              }
-              if (source == "inputOunces") {
-                inputPounds.value = (valNum * 0.062500).toFixed(4);
-                inputKilograms.value = (valNum / 35.274).toFixed(4);
-                inputGrams.value = (valNum / 0.035274).toFixed(1);
-              }
-              if (source == "inputGrams") {
-                inputPounds.value = (valNum * 0.0022046).toFixed(4);
-                inputKilograms.value = (valNum / 1000).toFixed(4);
-                inputOunces.value = (valNum * 0.035274).toFixed(3);
-              }
+            //   if (source == "inputPounds") {
+            //     inputKilograms.value = (valNum / 2.2046).toFixed(2);
+            //     inputGrams.value = (valNum / 0.0022046).toFixed();
+            //     inputOunces.value = (valNum * 0.071429).toFixed(3);
+            //   }
+            //   if (source == "inputKilograms") {
+            //     inputPounds.value = (valNum * 2.2046).toFixed(2);
+            //     inputOunces.value = (valNum * 35.274).toFixed(2);
+            //     inputGrams.value = (valNum * 1000).toFixed();
+            //   }
+            //   if (source == "inputOunces") {
+            //     inputPounds.value = (valNum * 0.062500).toFixed(4);
+            //     inputKilograms.value = (valNum / 35.274).toFixed(4);
+            //     inputGrams.value = (valNum / 0.035274).toFixed(1);
+            //   }
+            //   if (source == "inputGrams") {
+            //     inputPounds.value = (valNum * 0.0022046).toFixed(4);
+            //     inputKilograms.value = (valNum / 1000).toFixed(4);
+            //     inputOunces.value = (valNum * 0.035274).toFixed(3);
+            //   }
 
 
-            }
+            // }
           </script>
         </div>
       </div>
 
       <div class="column">
         <div class="card">
-          <img class="main-icon" style="width: 50px" src="assets/css/images/lenght.png">
-          <h3>LENGHT</h3>
+          <img class="main-icon" style="width: 50px" src="assets/css/images/length.png">
+          <h3>LENGTH</h3>
           <div class="w3-half w3-margin-top">
             <label style="font-weight: bold; color: #414042;">Kilometer</label>
             <br>

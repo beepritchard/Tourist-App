@@ -135,6 +135,19 @@ h3{
   font-weight: bold;
 }
 
+.calculate-btn{
+  position: center;
+  background-color: #1d6582;
+  color: white;
+}
+
+.label{
+  padding-right: 10px;
+}
+
+.form-inline{
+  margin-left: 30%;
+}
 
   @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}

@@ -131,3 +131,22 @@ function weightConverter(source, valNum) {
     
         });
     }); });
+
+    // translator API
+
+    function translateFunc() {
+      var inputval = document.getElementById('username').value;
+      var language = document.getElementById('selectlanguage').value;
+      console.log(inputval);
+      console.log(language);
+      $(document).ready(function () {
+        $.getJSON('https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20191205T021322Z.d5f7103cf0f6f10e.261359be51540837a525aaa2ac9541a46a075bb7&lang=' + language + '&text=' + inputval, function (json) {
+          var allResponse = (JSON.stringify(json));
+          console.log(allResponse);
+          var JSONObject = JSON.parse(allResponse);
+          var translatedText = JSONObject["text"];
+          document.querySelector('.transOutput').innerHTML = '<b>Translated Output:</b> ' + translatedText;
+          console.log(translatedText);
+        });
+      });
+    }

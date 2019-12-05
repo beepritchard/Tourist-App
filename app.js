@@ -98,7 +98,7 @@ function weightConverter(source, valNum) {
 
     $("#SearchCity").on("click", function() {
     
-      // event.preventDefault();
+      event.preventDefault();
     
       var cityName = $("#cityName").val();
     

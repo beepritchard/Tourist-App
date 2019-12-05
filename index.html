@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>  
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -19,8 +20,8 @@
 
   <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="#section1"><img src="assets/css/images/icon-3.png" width="20%"> Text To Speech</a>
-    <a href="#section2"><img src="assets/css/images/icon-4.png" width="20%"> Around Me</a>
+    <a href="#section1"><img src="assets/css/images/icon-3.png" width="20%"> Translation</a>
+    <!-- <a href="#section2"><img src="assets/css/images/icon-4.png" width="20%"> Around Me</a> -->
     <a href="#section3"><img src="assets/css/images/icon-1.png" width="20%"> Money</a>
     <a href="#section4"><img src="assets/css/images/icon-2.png" width="20%"> Weather</a>
     <a href="#section5"><img src="assets/css/images/icon-5.png" width="20%"> Unit</a>
@@ -35,14 +36,46 @@
   <div id="section1" class="container-fluid"
     style="height: 600px; padding-top:70px;padding-bottom:70px; text-align: center;">
     <img class="main-img" src="assets/css/images/icon-3.png">
-    <h1 style="color:#873d35">TEXT TO SPEECH</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat pariatur voluptatibus, saepe sed quibusdam
-      doloremque esse accusamus sequi animi, eum ea, nobis error. Eos quas doloremque, nemo itaque beatae tempora.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, autem! Pariatur in amet labore. Fugit,
-      possimus qui architecto repudiandae voluptatem suscipit quis. Fugit odio ex, eligendi nostrum laboriosam tempora
-      deleniti!</p>
+    <h1 style="color:#873d35">TRANSLATOR</h1>
+    <div class="form-element">
+      <input type="text" placeholder="Type here" id="username" required="true" />
+      <select id="selectlanguage">
+        <option value="en">English</option>
+        <option value="fr">French</option>
+      </select>
+      <input type="button" value="Translate Text" onclick="translateFunc()">
+      <p class="transOutput"><b>Translated Output:</b></p>
+
+      <script>
+
+        function translateFunc() {
+          var inputval = document.getElementById('username').value;
+          var language = document.getElementById('selectlanguage').value;
+
+          console.log(inputval);
+          console.log(language);
+
+          $(document).ready(function () {
+
+            $.getJSON('https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20191205T021322Z.d5f7103cf0f6f10e.261359be51540837a525aaa2ac9541a46a075bb7&lang=' + language + '&text=' + inputval, function (json) {
+
+              var allResponse = (JSON.stringify(json));
+
+              console.log(allResponse);
+
+              var JSONObject = JSON.parse(allResponse);
+              var translatedText = JSONObject["text"];
+              document.querySelector('.transOutput').innerHTML = '<b>Translated Output:</b> ' + translatedText;
+
+              console.log(translatedText);
+            });
+          });
+        }
+
+      </script>
+    </div>
   </div>
-  <hr>
+  <!-- <hr>
   <div id="section2" class="container-fluid"
     style="height: 600px; padding-top:70px;padding-bottom:70px; text-align: center;">
     <img class="main-img" src="assets/css/images/icon-4.png">
@@ -53,7 +86,7 @@
       doloremque esse accusamus sequi animi, eum ea, nobis error. Eos quas doloremque, nemo itaque beatae tempora.</p>
 
   </div>
-  <hr>
+  <hr> -->
   <div id="section3" class="container-fluid"
     style="height: 600px; padding-top:70px;padding-bottom:70px; text-align: center;">
     <img class="main-img" src="assets/css/images/icon-1.png">

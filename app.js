@@ -91,3 +91,43 @@ function weightConverter(source, valNum) {
       inputMph.value = (valNum / 1.60934).toFixed(1);
     }
   }
+
+  // Weather API
+
+  $(document).ready(function(){
+
+    $("#SearchCity").on("click", function() {
+    
+      // event.preventDefault();
+    
+      var cityName = $("#cityName").val();
+    
+      console.log(cityName);
+    
+      var apiKey = "5386d7b4ea6f9bbb33b4ef81e382c057"
+      var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" + apiKey;
+                    
+      
+                    
+    
+      $.ajax({
+          url: queryURL,
+          method: "GET"
+      })
+        .then(function(response) {
+    
+          // Log the queryURL
+          console.log(queryURL);
+    
+          // Log the resulting object
+          console.log(response);
+    
+          $(".city").html(response.name + " Weather Details");
+          $(".icon").html(response.weather[0].icon + ".png");
+    
+          $(".wind").text("Wind Speed: " + response.wind.speed);
+          $(".humidity").text("Humidity: " + response.main.humidity);
+          $(".temp").text("Temperature (F) " + Math.floor(response.main.temp));
+    
+        });
+    }); });
